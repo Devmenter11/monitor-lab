@@ -7,9 +7,7 @@ có nội dung sau:
 ----------------------------------------------------------------------------------
 basic_auth_users:
   admin: $2b$12$wPCmohSoeYBRYmwO0qPZI.PMB83.wYCUlVTyAYj64C0zs.OMiIAyW
-----------------------------------------------------------------------------------
-
-Có thể sử dụng user khác bằng cách chạy file hashpw.py :
+----------------------------------------------------------------------------------Có thể sử dụng user khác bằng cách chạy file hashpw.py :
 --->  python3 hashpw.py
 
 Sửa nội dung file của prometheus.yml trong volume của prometheus_config:
