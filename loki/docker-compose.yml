@@ -1,0 +1,23 @@
+version: '3.8'
+
+services:
+  loki:
+    image: grafana/loki:3.4.1
+    container_name: loki
+    ports:
+      - "3100:3100"
+    volumes:
+      - ./loki-config.yaml:/mnt/config/loki-config.yaml
+    command: -config.file=/mnt/config/loki-config.yaml
+    restart: unless-stopped
+
+  promtail:
+    image: grafana/promtail:3.4.1
+    container_name: promtail
+    volumes:
+      - ./promtail-config.yaml:/mnt/config/promtail-config.yaml
+      - /var/log:/var/log:ro
+      - /root/00.DockerCompose/0.openresty/logs:/nginxlogs
+
+    command: -config.file=/mnt/config/promtail-config.yaml
+    restart: unless-stopped
